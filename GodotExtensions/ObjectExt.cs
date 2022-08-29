@@ -16,7 +16,7 @@ namespace GodotExtensions
 
         const string DEFAULT_OBJECT_NAME = "Default Object Name";
 
-        public virtual void HighlightToDeveloper()
+        public virtual void HighlightInEditor()
         {
             //override this with however this object could be made more clear in editor
         }

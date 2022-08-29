@@ -11,7 +11,7 @@ namespace CustomDotNetExtensions
         public ulong ID { get; }
         public DebugMode DebugMode { get; }
 
-        public void HighlightToDeveloper();
+        public void HighlightInEditor();
     }
 
     public interface IIdentifiedNamed : IIdentified

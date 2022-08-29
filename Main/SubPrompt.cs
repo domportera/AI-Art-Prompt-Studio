@@ -6,24 +6,24 @@ namespace AiArtPromptStudio.Main
     [Serializable]
     internal class SubPrompt
     {
-        [JsonProperty] protected string text;
+        [JsonProperty] string _text;
         public virtual string Text {
             get {
-                return text;
+                return _text;
             }
             set {
-                text = value;
+                _text = value;
                 Updated(this, NewEventArgs);
             }
         }
 
-        [JsonProperty] protected string separator;
-        public virtual string Separator {
+        [JsonProperty] string _separator;
+        public virtual string Separator { //should override this in child classes, like SubpromptMidjourney
             get {
-                return separator;
+                return _separator;
             }
             set {
-                separator = value;
+                _separator = value;
                 Updated(this, NewEventArgs);
             }
         }
@@ -31,6 +31,12 @@ namespace AiArtPromptStudio.Main
         private SubPromptEventArgs NewEventArgs => new SubPromptEventArgs(this);
 
         internal event EventHandler<SubPromptEventArgs> Updated;
+
+        public SubPrompt(string thistext, string separator)
+        {
+            _text = thistext;
+            _separator = separator;
+        }
 
         internal void InvokeUpdateFromPrompt(Prompt sender)
         {
@@ -45,7 +51,6 @@ namespace AiArtPromptStudio.Main
         {
             this.subPrompt = subPrompt;
         }
-
 
         internal SubPrompt subPrompt { get; private set; }
     }

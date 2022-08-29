@@ -24,7 +24,7 @@ namespace GodotExtensions
 
         }
 
-        public virtual void HighlightToDeveloper()
+        public virtual void HighlightInEditor()
         {
             //override this with however this object could be made more clear in editor
         }
